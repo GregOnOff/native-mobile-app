@@ -42,10 +42,10 @@ export default function ListInput({
         />
         <View style={styles.buttonContainer}>
           <View style={styles.defaultBtn}>
-            <Button title={"new goal+"} onPress={addGoalHandler} />
+            <Button title={"Cancel"} onPress={() => setVisibleModal(false)} />
           </View>
           <View style={styles.defaultBtn}>
-            <Button title={"Cancel"} onPress={() => setVisibleModal(false)} />
+            <Button title={"new goal+"} onPress={addGoalHandler} />
           </View>
         </View>
       </View>
