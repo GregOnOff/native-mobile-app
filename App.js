@@ -16,19 +16,31 @@ export default function App() {
   const [addedGoals, setAddedGoals] = useState([]);
   const [visibleModal, setVisibleModal] = useState(false);
 
+  function preInputHandler() {
+    setVisibleModal(true);
+  }
+
   function nuclearStrike() {
     setAddedGoals([]);
   }
 
   return (
     <View style={styles.container}>
-      {/*<Button title={"new Todo"} color={"limegreen"} />*/}
-      <ListInput
-        setAddedGoals={setAddedGoals}
-        enteredGoalText={enteredGoalText}
-        setEnteredGoalText={setEnteredGoalText}
+      <Button
+        title={"new Todo"}
+        color={"limegreen"}
+        onPress={preInputHandler}
       />
 
+      {visibleModal && (
+        <ListInput
+          setAddedGoals={setAddedGoals}
+          enteredGoalText={enteredGoalText}
+          setEnteredGoalText={setEnteredGoalText}
+          visibleModal={visibleModal}
+          setVisibleModal={setVisibleModal}
+        />
+      )}
       <View style={styles.listContainer}>
         <FlatList
           data={addedGoals}
